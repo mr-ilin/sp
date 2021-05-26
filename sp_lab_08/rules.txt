@@ -1,0 +1,69 @@
+1. Форма or.
+	1.2 Отсутствует.
+
+2. Форма and.
+	2.1 Один и более операндов.
+	 (and x? y? z?)
+
+3. Форма not.
+	3.1 Есть.
+	 (not x? )
+
+4. Оператор  сравнения.
+	4.1 Есть.
+	 (=  x y)
+     
+5. Оператор отношения.
+	5.2 (<= x y)
+
+6. Легкий let.
+	6.1 Есть.
+	 (let() e pi)
+
+7. Числовой if.
+	7.1 Есть.
+	 (if x? 1 0)
+
+8. Строковый if.
+	8.2 Отсутствует.
+
+9. Строковый COND.
+	9.2 Отсутствует.
+
+10. Числовой COND.
+    10.11 Отсутствует.
+
+(and (<= a b) (not (= a b)))
+
+(or   x? y?) ~  (not(and(not x?)(not y?)))
+
+(cond ( (< ya yb)(set! b xb)
+                         (set! xb xa)
+                         (set! yb ya)
+                         (set! xa (+ a (* mphi(- b a))))
+                         (try a b xa (fun xa) xb yb)
+      )
+                  (else    (set! a xa)
+                         (set! xa xb)
+                         (set! ya yb)
+                         (set! xb (- b (* mphi(- b a))))
+                         (try a b xa ya xb (fun xb))
+                   )
+);cond...
+
+(if (and (<= ya yb) (not (= ya yb)))
+    (let()
+        (set! b xb)
+        (set! xb xa)
+        (set! yb ya)
+        (set! xa (+ a (* mphi(- b a))))
+        (try a b xa (fun xa) xb yb)
+    )
+    (let()
+        (set! a xa)
+        (set! xa xb)
+        (set! ya yb)
+        (set! xb (- b (* mphi(- b a))))
+        (try a b xa ya xb (fun xb))
+    )
+);if...

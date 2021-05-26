@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Verdana-Bold;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\info
+{\title \uc0\u1051 \u1072 \u1073 \u1086 \u1088 \u1072 \u1090 \u1086 \u1088 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  N2}
+{\author rvp}
+{\*\company \uc0\u1048 \u1057 \u1055  \u1056 \u1040 \u1053 }}\paperw11900\paperh16840\margl1152\margr1152\margb1134\margt1134\vieww17920\viewh19820\viewkind1
+\deftab708
+\pard\pardeftab708\ri-6\partightenfactor0
+
+\f0\b\fs28 \cf0        \
+\uc0\u1046 \u1048 \u1056 \u1053 \u1067 \u1049  \u1064 \u1056 \u1048 \u1060 \u1058 ! 14 \u1087 \u1091 \u1085 \u1082 \u1090 \u1086 \u1074 . Verdana.\
+\
+\
+							\uc0\u1057 \u1090 \u1091 \u1076 \u1077 \u1085 \u1090 : \u1048 \u1083 \u1100 \u1080 \u1085  \u1048 .\u1054 .\
+							\uc0\u1043 \u1088 \u1091 \u1087 \u1087 \u1072 : \u1052 8\u1054 -206\u1041 -19\
+							\uc0\u1053 \u1086 \u1084 \u1077 \u1088  \u1087 \u1086  \u1089 \u1087 \u1080 \u1089 \u1082 \u1091 : 11\
+								\
+\uc0\u1058 \u1077 \u1084 \u1072 : \u1047 \u1085 \u1072 \u1082 \u1086 \u1084 \u1089 \u1090 \u1074 \u1086  \u1089  \u1103 \u1079 \u1099 \u1082 \u1086 \u1084  \u1052 \u1048 \u1050 \u1056 \u1054 \u1051 \u1048 \u1057 \u1055 . \
+      \uc0\u1054 \u1090 \u1086 \u1073 \u1088 \u1072 \u1078 \u1077 \u1085 \u1080 \u1077  \u1087 \u1088 \u1086 \u1075 \u1088 \u1072 \u1084 \u1084  \u1080 \u1079  \u1052 \u1048 \u1050 \u1056 \u1054 \u1051 \u1048 \u1057 \u1055 \u1072  \u1074  \u1057 ++.\
+\
+\
+     \uc0\u1051 \u1072 \u1073 \u1086 \u1088 \u1072 \u1090 \u1086 \u1088 \u1085 \u1072 \u1103  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072  N1\
+\uc0\u1042 \u1072 \u1088 \u1080 \u1072 \u1085 \u1090 :31.12.2021\
+								\
+\uc0\u1056 \u1072 \u1089 \u1087 \u1077 \u1095 \u1072 \u1090 \u1082 \u1072  \u1092 \u1072 \u1081 \u1083 \u1072  zeller.cpp\
+//zeller.cpp\
+#include "mlisp.h"\
+double day__of__week();\
+double zeller(double d, double m, double y, double c);\
+double neg__to__pos(double d);\
+double birthday(double dw);\
+extern double dd;\
+extern double mm;\
+extern double yyyy;\
+\
+double day__of__week() \{\
+  return zeller(dd,\
+    (mm < 3. ? mm + 10. : mm - 2.),\
+    remainder(mm < 3. ? yyyy - 1. : yyyy, 100.),\
+    quotient(mm < 3. ? yyyy - 1. : yyyy, 100.) \
+  );\
+\}\
+\
+double zeller(double d, double m, double y, double c) \{\
+  return neg__to__pos(\
+    remainder(d + y \
+    + quotient((26. * m) - 2., 10.)\
+    + quotient(y, 4.)\
+    + quotient(c, 4.)\
+    + 2. * (-c)\
+    , 7.)\
+  );\
+\}\
+\
+double neg__to__pos(double d)\{\
+ return (d < 0. ? d + 7.\
+         : true ? d\
+         : _infinity\
+        );\
+\}\
+\
+double birthday(double dw)\{\
+  display("Your were born on ");\
+  display(\
+    dw == 1. ? "Monday "\
+    : dw == 2. ? "Tuesday "\
+    : dw == 3. ? "Wednesday "\
+    : dw == 4. ? "Thursday "\
+    : dw == 5. ? "Friday "\
+    : dw == 6. ? "Saturday "\
+    : "Sunday "\
+  );\
+  display(dd); display(".");\
+  display(mm); display(".");\
+  return yyyy;\
+\}\
+\
+double dd = 06.;\
+double mm = 06.;\
+double yyyy = 2001.;\
+\
+int main() \{\
+ display(birthday (day__of__week()));\
+ newline();\
+\
+ std::cin.get();\
+ return 0;\
+\}\
+\
+\
+\uc0\u1057 \u1082 \u1088 \u1080 \u1085 \u1096 \u1086 \u1090  \u1079 \u1072 \u1087 \u1091 \u1089 \u1082 \u1072  \u1074  C++(\u1073 \u1077 \u1083 \u1099 \u1081  \u1096 \u1088 \u1080 \u1092 \u1090  \u1085 \u1072 \
+ \uc0\u1071 \u1056 \u1050 \u1054 \u1052  \u1063 \u1045 \u1056 \u1053 \u1054 \u1052  \u1092 \u1086 \u1085 \u1077 )\
+>\
+\uc0\u1057 \u1082 \u1088 \u1080 \u1085 \u1096 \u1086 \u1090  \u1079 \u1072 \u1087 \u1091 \u1089 \u1082 \u1072  \u1074  DrRacket\
+>\
+}
